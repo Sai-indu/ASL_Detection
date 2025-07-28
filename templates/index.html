@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ASL Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🧠 ASL Detection</h1>
+        <form id="uploadForm" enctype="multipart/form-data">
+            <label for="imageInput" class="custom-file-upload">📁 Choose File</label>
+            <input type="file" id="imageInput" name="image" accept="image/*">
+            <button type="submit">Predict</button>
+        </form>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        document.getElementById("uploadForm").addEventListener("submit", async function(event) {
+            event.preventDefault();
+            const formData = new FormData();
+            const fileInput = document.getElementById("imageInput");
+            if (!fileInput.files.length) {
+                document.getElementById("result").innerText = "Please select an image first!";
+                return;
+            }
+
+            formData.append("image", fileInput.files[0]);
+
+            const res = await fetch("/predict", {
+                method: "POST",
+                body: formData
+            });
+
+            const data = await res.json();
+            document.getElementById("result").innerText = "Predicted Class: " + data.class;
+        });
+    </script>
+</body>
+</html>

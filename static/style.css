@@ -1,0 +1,68 @@
+/* Background setup */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-image: url("/static/images/asl.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Main container */
+.container {
+    background: rgba(255, 228, 230, 0.7); /* blush pink */
+    padding: 50px 40px;  /* less vertical, more horizontal padding */
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    width: 95%;
+    max-width: 400px;  /* slightly wider */
+}
+
+/* Hide default file input */
+input[type="file"] {
+    display: none;
+}
+
+/* Custom file upload button */
+.custom-file-upload {
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(to right, #ff69b4, #8a2be2); /* pink to purple */
+    color: white;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: opacity 0.3s ease;
+}
+
+.custom-file-upload:hover {
+    opacity: 0.85;
+}
+
+/* Predict button */
+button {
+    padding: 10px 20px;
+    background: linear-gradient(to right, #ff69b4, #8a2be2);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+/* Prediction result text */
+#result {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
